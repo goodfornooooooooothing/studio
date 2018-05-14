@@ -1,4 +1,10 @@
 class Studio < ApplicationRecord
+  belongs_to :area
+  has_many :studio_photos,dependent: :destroy
+
+  has_many :studio_equipments
+  has_many :equipments, through: :studio_equipments
+  
   validates :name, presence: true, length: { maximum: 100 }
   validates :area_id, presence: true
   validates :station, presence: true, length: { maximum: 50 }
