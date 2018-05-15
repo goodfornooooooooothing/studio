@@ -1,0 +1,10 @@
+<% if @area.present? %>
+<h1><%= @area.name %>の音楽スタジオ一覧</h1>
+<% else %>
+<h1>都内の音楽スタジオ一覧</h1>
+<% end %>
+
+<% @studios.each do |studio| %>
+<%= studio.name %><br>
+<% end %>
+
