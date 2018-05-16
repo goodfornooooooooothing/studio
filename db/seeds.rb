@@ -1,5 +1,11 @@
 # coding: utf-8
 
+StudioPhoto.create(
+  id:1,
+  studio_id:1,
+  photo_url:"images/studios/studio_1_1.jpg"
+  )
+
 Area.create(id: 1, name: "千代田区")
 Area.create(id: 2, name: "中央区")
 Area.create(id: 3, name: "港区")
