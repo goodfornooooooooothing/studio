@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   #一覧表示ページ
   get 'studios', to: 'studios#index'
   #詳細表示ページ
-  get 'studios/:id', to: 'studios#show'
+  get 'studios/:id', to: 'studios#show' , as: 'studio'
 
   end

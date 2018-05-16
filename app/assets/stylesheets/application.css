@@ -43,3 +43,13 @@ footer {
   font-weight: bold;
   letter-spacing: 0.15em;
 }
+
+.row-eq-height {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.table-noborder {
+  border-top: 0px !important;
+  border-bottom: 0px !important;
+}

@@ -1,10 +1,66 @@
 <% if @area.present? %>
-<h1><%= @area.name %>の音楽スタジオ一覧</h1>
+  <h3><%= @area.name %>の音楽スタジオ一覧(<%= @hit_count %>件)</h3>
 <% else %>
-<h1>都内の音楽スタジオ一覧</h1>
+  <h3>都内の音楽スタジオ一覧</h3>
 <% end %>
 
-<% @studios.each do |studio| %>
-<%= studio.name %><br>
-<% end %>
-
+<!-- スタジオ一覧表示 -->
+<div class="container">
+  <div class="row row-eq-height">
+    <% @studios.each do |studio| %>
+      <div class="col-xs-12 col-lg-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <%= link_to studio.name, studio_path(studio) %>
+          </div>
+          <div class="panel-body">
+            <!--店舗情報ここから-->
+            <div class="image-view">
+            <% if studio.studio_photos.present? %>
+              <img src="<%= studio.studio_photos.first.photo_url %>" alt="<%= studio.name %>" width="100%">
+            <% else %>
+              <img src="/images/studios/noimage.png" alt="noimage" width="100%">
+            <% end %>
+            </div>
+            
+            <div class="table-responsive">
+              <table class="table">
+                <tbody>
+                    <tr>
+                        <th>エリア</th>
+                        <td><%= @area.name %></td>
+                    </tr>
+                    <tr>
+                        <th>最寄駅</th>
+                        <td><%= studio.station %></td>
+                    </tr>
+                    <tr>
+                        <th>営業時間</th>
+                        <td><%= studio.business_hours %></td>
+                    </tr>
+                    <tr>
+                        <th>定休日</th>
+                        <td><%= studio.day_off %></td>
+                    </tr>
+                    <tr>
+                        <th>料金(平日)</th>
+                        <td><%= studio.charge_weekday %>円~</td>
+                    </tr>
+                    <tr>
+                        <th>料金(休日)</th>
+                        <td><%= studio.charge_holiday %>円~</td>
+                    </tr>
+                    <tr>
+                        <th>部屋数</th>
+                        <td><%= studio.room %></td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+            <!--詳細情報ここまで-->
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
