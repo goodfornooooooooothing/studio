@@ -1,8 +1,10 @@
-<% if @area.present? %>
-  <h3><%= @area.name %>の音楽スタジオ一覧(<%= @hit_count %>件)</h3>
-<% else %>
-  <h3>都内の音楽スタジオ一覧</h3>
-<% end %>
+<div class="title_result YuGothic_b">
+  <% if @area.present? %>
+    <h3><%= @area.name %>の音楽スタジオ一覧(<%= @hit_count %>件)</h3>
+  <% else %>
+    <h3>都内の音楽スタジオ一覧</h3>
+  <% end %>
+</div>
 
 <!-- スタジオ一覧表示 -->
 <div class="container">
@@ -10,7 +12,7 @@
     <% @studios.each do |studio| %>
       <div class="col-xs-12 col-lg-4">
         <div class="panel panel-info">
-          <div class="panel-heading">
+          <div class="panel-heading YuGothic_b">
             <%= link_to studio.name, studio_path(studio) %>
           </div>
           <div class="panel-body">

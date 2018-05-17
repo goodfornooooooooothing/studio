@@ -59,3 +59,5 @@ group :production do
 end
 
 ruby '2.4.1'
+
+gem 'geocoder'

@@ -1,4 +1,5 @@
 # coding: utf-8
+# エリア
 Area.create(id: 1, name: "千代田区")
 Area.create(id: 2, name: "中央区")
 Area.create(id: 3, name: "港区")
@@ -23,6 +24,7 @@ Area.create(id: 21, name: "墨田区")
 Area.create(id: 22, name: "江東区")
 Area.create(id: 23, name: "江戸川区")
 
+# スタジオ情報
 Studio.create(
   id:1,
   name:"スタジオペンタ 大塚店",
@@ -278,5 +280,6 @@ Studio.create(
   url:"http://www.mother-house.com/",
   tel:"03-3959-2083"
   )
-  
+
+# 店舗画像
 StudioPhoto.create(id:1,studio_id:1,photo_url:"images/studios/studio_1_1.jpg")

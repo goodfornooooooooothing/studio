@@ -1,1 +1,45 @@
 <h3><%= @studio.name %>の詳細情報</h3>
+
+<!-- map表示 -->  
+<div id="map"></div>
+
+
+<script type="text/javascript">
+  function initMap() {
+  
+    var test ={lat: <%= @place["lat"] %>, lng: <%= @place["lng"] %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: test
+    });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+  
+    var contentString = '住所：<%= @studio.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+  
+    var marker = new google.maps.Marker({
+      position:test,
+      map: map,
+      title: contentString
+    });
+  
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+  }
+ </script>
+ 
+ <script async defer
+   src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBfR6RF3Bxj1C9Qa9-JzyxqXejrQL6kZas&callback=initMap">
+ </script>
+ 
+ <style type="text/css">
+  #map { height: 400px;
+   margin-left:auto;    /* 左側マージンを自動的に空ける */
+   margin-right:auto;   /* 右側マージンを自動的に空ける */
+   text-align:left;     /* 中身を左側表示に戻す */
+   width: 80%;}
+</style>
