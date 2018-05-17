@@ -1,7 +1,86 @@
-<h3><%= @studio.name %>の詳細情報</h3>
+<h4 class="YuGothic_b"><%= @studio.name %></h4>
+<div class="container">
+  <div class="row">
+<!-- 左側 -->
+    <div class="main_left col-xs-12 col-lg-7">
 
-<!-- map表示 -->  
-<div id="map"></div>
+      <div class="image-view">
+        <!-- 任意のID指定。クラスとデータ属性の指定。 -->
+        <div id="carousel-img" class="carousel slide" data-ride="carousel">
+          <!-- インジケーターの設置。下部の○●ボタン。 -->
+          <ol class="carousel-indicators">
+            <!--枚数に応じて分岐-->
+            <% @studio_photo_urls.each_with_index do |studio_photo_url, i| %>
+              <% if i == 0 %>
+                <li data-target="#carousel-img" data-slide-to="0" class="active"></li>
+              <% else %>
+                <li data-target="#carousel-img" data-slide-to="1"></li>
+              <% end %>
+            <% end %>
+          </ol>
+
+          <!-- スライドの内容 -->
+          <div class="carousel-inner">
+            <!--枚数に応じて分岐-->
+            <% @studio_photo_urls.each_with_index do |studio_photo_url, i| %>
+              <% if i == 0 %>
+                <div class="item active">
+                  <img src="/images/studios/<%= studio_photo_url %>" alt="">
+                </div>
+              <% else %>
+                <div class="item">
+                  <img src="/images/studios/<%= studio_photo_url %>" alt="">
+                </div>
+              <% end %>
+            <% end %>
+            
+          </div>
+          
+          <!-- 左右の移動ボタン -->
+          <a class="left carousel-control" href="#carousel-img" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          </a>
+          <a class="right carousel-control" href="#carousel-img" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+      <div style="padding:20px;">
+        うんち
+      </div>
+      
+    </div>
+    
+<!-- 右側 -->
+    <div class="main_right col-xs-12 col-lg-4">
+      <!-- map表示 -->  
+      <div id="map"></div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <script type="text/javascript">
@@ -37,7 +116,7 @@
  </script>
  
  <style type="text/css">
-  #map { height: 400px;
+  #map { height: 300px;
    margin-left:auto;    /* 左側マージンを自動的に空ける */
    margin-right:auto;   /* 右側マージンを自動的に空ける */
    text-align:left;     /* 中身を左側表示に戻す */

@@ -13,12 +13,10 @@ APP_ID_YAHOO = "dj00aiZpPVZzVkJ2djcwWnZ4TCZzPWNvbnN1bWVyc2VjcmV0Jng9Yjc-"
     reqUrl = "#{BASE_URL_YOLP_GEOCODER}?appid=#{APP_ID_YAHOO}&query=#{address}&output=json"
     response = Net::HTTP.get_response(URI.parse(reqUrl))
     # レスポンスコードのチェック
-    # 詳細は http://magazine.rubyist.net/?0013-BundledLibraries
     case response
     # 200 OK
     when Net::HTTPSuccess then
       data = JSON.parse(response.body)
-      #p status # for DEBUG
       # YOLPでの座標情報は緯度経度に分かれていない（カンマ区切りの）ため分解する
       coordinates = data['Feature'][0]['Geometry']['Coordinates'].split(/,\s?/)
       hash['lat'] = coordinates[1].to_f # 緯度
@@ -42,7 +40,18 @@ APP_ID_YAHOO = "dj00aiZpPVZzVkJ2djcwWnZ4TCZzPWNvbnN1bWVyc2VjcmV0Jng9Yjc-"
   end
 
   def show
+    @studio_photo_urls = []
     @studio = Studio.find(params[:id])
     @place = geocode_yolp(@studio.address)
+
+    # スタジオ写真のURLを配列にぶち込む
+    if @studio.studio_photos.present?
+      @studio.studio_photos.each do |studio_photos|
+        @studio_photo_urls.push(studio_photos.photo_url)
+      end
+    else
+      @studio_photo_urls.push("noimage.png")
+    end
+
   end
 end

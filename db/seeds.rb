@@ -282,4 +282,5 @@ Studio.create(
   )
 
 # 店舗画像
-StudioPhoto.create(id:1,studio_id:1,photo_url:"images/studios/studio_1_1.jpg")
+StudioPhoto.create(id:1,studio_id:1,photo_url:"studio_1_1.jpg")
+StudioPhoto.create(id:2,studio_id:1,photo_url:"studio_1_2.jpg")

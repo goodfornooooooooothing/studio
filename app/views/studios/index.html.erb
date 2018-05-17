@@ -1,8 +1,8 @@
 <div class="title_result YuGothic_b">
   <% if @area.present? %>
-    <h3><%= @area.name %>の音楽スタジオ一覧(<%= @hit_count %>件)</h3>
+    <h4><%= @area.name %>の音楽スタジオ一覧(<%= @hit_count %>件)</h4>
   <% else %>
-    <h3>都内の音楽スタジオ一覧</h3>
+    <h4>都内の音楽スタジオ一覧</h4>
   <% end %>
 </div>
 
@@ -11,7 +11,7 @@
   <div class="row row-eq-height">
     <% @studios.each do |studio| %>
       <div class="col-xs-12 col-lg-4">
-        <div class="panel panel-info">
+        <div class="panel panel-default">
           <div class="panel-heading YuGothic_b">
             <%= link_to studio.name, studio_path(studio) %>
           </div>
@@ -19,9 +19,9 @@
             <!--店舗情報ここから-->
             <div class="image-view">
             <% if studio.studio_photos.present? %>
-              <img src="<%= studio.studio_photos.first.photo_url %>" alt="<%= studio.name %>" width="100%">
+              <img src="/images/studios/<%= studio.studio_photos.first.photo_url %>" alt="<%= studio.name %>" class="img-responsive">
             <% else %>
-              <img src="images/studios/noimage.png" alt="noimage" width="100%">
+              <img src="/images/studios/noimage.png" alt="noimage" class="img-responsive">
             <% end %>
             </div>
             
