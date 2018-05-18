@@ -1,5 +1,5 @@
 <h4 class="YuGothic_b"><%= @studio.name %></h4>
-<div class="container">
+<div class="container" style="width:100%;">
   <div class="row">
 <!-- 左側 -->
     <div class="main_left col-xs-12 col-lg-7">
@@ -45,16 +45,116 @@
           </a>
         </div>
       </div>
-      <div style="padding:20px;">
-        うんち
+      <div class="charge">
+        <h5><i class="fas fa-info-circle"></i>利用料金</h5>
+        <table class="table">
+          <thead>
+          <tr>
+          <th>平日</th>
+          <th>土日祝</th>
+          </thead>
+          <tbody>
+          <tr>
+          <td><%= @studio.charge_weekday %>円 ~</td>
+          <td><%= @studio.charge_holiday %>円 ~</td>
+          </tr>
+          </tbody>
+        </table>
       </div>
       
     </div>
     
 <!-- 右側 -->
-    <div class="main_right col-xs-12 col-lg-4">
-      <!-- map表示 -->  
-      <div id="map"></div>
+    <div class="main_right col-xs-12 col-lg-5">
+      <div class="studio_info">
+        <h5><i class="fas fa-info-circle"></i>基本情報</h5>
+        <!-----------最寄駅ここから----------->
+        <div class="station row center-block">
+          <div class="row">
+            <div class="title col-xs-3">
+              最寄駅
+            </div>
+            <div class="content col-xs-9">
+              <%= @studio.station %>
+            </div>
+          </div>
+        </div>
+        <!-----------最寄駅ここまで----------->
+        <!-----------住所ここから----------->
+        <div class="address row center-block">
+          <div class="row">
+            <div class="title col-xs-3">
+              住所
+            </div>
+            <div class="content col-xs-9">
+              <%= @studio.address %>
+            </div>
+          </div>
+        </div>
+        <!-----------住所ここまで----------->
+        <!-----------営業時間ここから----------->
+        <div class="business_hours row center-block">
+          <div class="row">
+            <div class="title col-xs-3">
+              営業時間
+            </div>
+            <div class="content col-xs-9">
+              <%= @studio.business_hours %>
+            </div>
+          </div>
+        </div>
+        <!-----------営業時間ここまで----------->
+        <!-----------定休日ここから----------->
+        <div class="day_off row center-block">
+          <div class="row">
+            <div class="title col-xs-3">
+              定休日
+            </div>
+            <div class="content col-xs-9">
+              <%= @studio.day_off %>
+            </div>
+          </div>
+        </div>
+        <!-----------定休日ここまで----------->
+        <!-----------電話番号ここから----------->
+        <div class="tel row center-block">
+          <div class="row">
+            <div class="title col-xs-3">
+              電話番号
+            </div>
+            <div class="content col-xs-9">
+              <%= @studio.tel %>
+            </div>
+          </div>
+        </div>
+        <!-----------電話番号ここまで----------->
+        <!-----------URLここから----------->
+        <div class="url row center-block">
+          <div class="row">
+            <div class="title col-xs-3">
+              URL
+            </div>
+            <div class="content col-xs-9">
+              <%= link_to @studio.url, @studio.url,:target=>["_blank"] %>
+            </div>
+          </div>
+        </div>
+        <!-----------URLここまで----------->
+      </div>
+      
+      <div class="map_area">
+        <h5><i class="fas fa-map-marker-alt"></i>地図</h5>
+
+          <!--googlemapで開くボタン-->
+          <%= link_to  "https://www.google.co.jp/maps?q="+@studio.name+"\s"+@studio.address,
+          class: 'googlemap_open btn btn-default btn-xs',:target=>["_blank"] do %>
+            <i class="fas fa-external-link-alt"></i>
+            <span>GoogleMapで開く</span>
+          <% end %>
+
+        <!-- map表示 -->
+        <div id="map" class="map"></div>
+      </div>
     </div>
 
   </div>
@@ -84,41 +184,34 @@
 
 
 <script type="text/javascript">
-  function initMap() {
-  
-    var test ={lat: <%= @place["lat"] %>, lng: <%= @place["lng"] %>};
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 15,
-      center: test
-    });
-    var transitLayer = new google.maps.TransitLayer();
-    transitLayer.setMap(map);
-  
-    var contentString = '住所：<%= @studio.address %>';
-    var infowindow = new google.maps.InfoWindow({
-      content: contentString
-    });
-  
-    var marker = new google.maps.Marker({
-      position:test,
-      map: map,
-      title: contentString
-    });
-  
-    marker.addListener('click', function() {
-      infowindow.open(map, marker);
-    });
-  }
+function initMap() {
+
+  var test ={lat: <%= @place["lat"] %>, lng: <%= @place["lng"] %>};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 15,
+    center: test
+  });
+  var transitLayer = new google.maps.TransitLayer();
+  transitLayer.setMap(map);
+
+  var contentString = '住所：<%= @studio.address %>';
+  var infowindow = new google.maps.InfoWindow({
+    content: contentString
+  });
+
+  var marker = new google.maps.Marker({
+    position:test,
+    map: map,
+    title: contentString
+  });
+
+  marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
+}
  </script>
  
  <script async defer
    src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBfR6RF3Bxj1C9Qa9-JzyxqXejrQL6kZas&callback=initMap">
  </script>
  
- <style type="text/css">
-  #map { height: 300px;
-   margin-left:auto;    /* 左側マージンを自動的に空ける */
-   margin-right:auto;   /* 右側マージンを自動的に空ける */
-   text-align:left;     /* 中身を左側表示に戻す */
-   width: 80%;}
-</style>

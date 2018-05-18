@@ -32,10 +32,13 @@ APP_ID_YAHOO = "dj00aiZpPVZzVkJ2djcwWnZ4TCZzPWNvbnN1bWVyc2VjcmV0Jng9Yjc-"
   def index
     # 指定されたエリアで絞る
     if params[:area_id].present?
+      @sortby = params[:sortby]
       @area_id = params[:area_id]
       @area = Area.find(@area_id) #該当エリア
       @hit_count = Studio.where(area_id:@area_id).count #ヒット件数
-      @studios = @area.studios #ヒットしたスタジオ達
+      @studios = @area.studios.order(params[:sort]) #ヒットしたスタジオ達
+    else
+      puts "This Area has no studios!!"
     end
   end
 

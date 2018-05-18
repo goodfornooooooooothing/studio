@@ -79,13 +79,19 @@ footer {
 .main_left{
   background-color: white;
   padding:0;
-  margin-right:4px;
-  margin-bottom:4px;
+  border-right:solid 4px #f2f2f2;
+  border-bottom:solid 4px #f2f2f2;
+}
+
+.charge{
+  background-color: white;
+  padding:15px;
 }
 
 .main_right{
   background-color: white;
-  
+  border-right:solid 4px #f2f2f2;
+  word-wrap: break-word;
 }
 
 h4 {
@@ -94,4 +100,61 @@ h4 {
   background: transparent;/*背景透明に*/
   border-left: solid 5px black;/*左線*/
   font-weight: bold;
+}
+
+h5{
+  color: #494949;/*文字色*/
+  background: transparent;/*背景透明に*/
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.studio_info{
+  border-bottom: solid 1px #f2f2f2;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.map_area{
+  border-bottom: solid 1px #f2f2f2;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.map {
+  height: 250px;
+  margin-left:auto;    /* 左側マージンを自動的に空ける */
+  margin-right:auto;   /* 右側マージンを自動的に空ける */
+  text-align:left;     /* 中身を左側表示に戻す */
+}
+
+.title{
+  font-weight: bold;
+}
+
+.fas{
+  padding-right:5px;
+}
+
+.googlemap_open{
+  margin-bottom: 1px;
+  border:none;
+}
+
+.title_result{
+  padding-bottom: 10px;
+}
+
+.sort_studios{
+  padding-bottom: 10px;
+}
+
+.noborder_table{
+  border-style: none;
+}
+
+.sortby{
+  font-size: 16px;
+  padding-bottom: 10px;
+  padding-left: 10px;
 }
