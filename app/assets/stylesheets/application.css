@@ -115,13 +115,13 @@ h5{
   padding-bottom: 8px;
 }
 
-.map_area{
+.map_content{
   border-bottom: solid 1px #f2f2f2;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-.map {
+.studio_map {
   height: 250px;
   margin-left:auto;    /* 左側マージンを自動的に空ける */
   margin-right:auto;   /* 右側マージンを自動的に空ける */
@@ -157,4 +157,8 @@ h5{
   font-size: 16px;
   padding-bottom: 10px;
   padding-left: 10px;
+}
+
+.image_map{
+  
 }

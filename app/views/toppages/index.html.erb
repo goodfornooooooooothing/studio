@@ -2,22 +2,6 @@
   <div class="cover">
     <div class="cover-inner">
       <div class="cover-contents">
-        <div class="search well well-lg">
-          <div class="row">
-            <div class="text-center">
-              <%= form_tag(studios_path, method: :get, class: 'form-inline') do %>
-                <div class="form-group">
-                  <%= label_tag :area_id, 'エリア' %>
-                  <%= select_tag :area_id, 
-                  options_from_collection_for_select(Area.all, "id", "name", selected: 1)
-                  %>
-                <br><br>
-                <%= submit_tag '検索する' ,class: 'btn btn-success btn-lg'%>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
         <!--<a href="" class="btn btn-success btn-lg">さっそく検索する</a>-->
       </div>
     </div>
@@ -25,5 +9,19 @@
 <% end %>
 
 <body>
-何かの情報
+<div class="container">
+
+  <h4>エリアを指定</h4>
+  <div class="search well well-lg text-center">
+    <div class="row">
+      <div class="col-xs-12 col-lg-8 col-lg-offset-2">
+        <div class="image_map center-block">
+          <%= render 'layouts/imagemap' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
 </body>
+

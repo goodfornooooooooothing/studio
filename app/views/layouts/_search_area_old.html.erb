@@ -1,0 +1,16 @@
+  <div class="search well well-lg">
+    <div class="row">
+      <div class="text-center">
+        <%= form_tag(studios_path, method: :get, class: 'form-inline') do %>
+          <div class="form-group">
+            <%= label_tag :area_id, 'エリア' %>
+            <%= select_tag :area_id, 
+            options_from_collection_for_select(Area.all, "id", "name", selected: 1)
+            %>
+          <br><br>
+          <%= submit_tag '検索する' ,class: 'btn btn-success btn-lg'%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
