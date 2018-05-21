@@ -101,6 +101,10 @@ h1{
   color: white;
 }
 
+h3{
+  color: #212121;
+}
+
 h4 {
   padding: 0.25em 0.5em;/*上下 左右の余白*/
   color: #494949;/*文字色*/
