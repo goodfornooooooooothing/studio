@@ -10,6 +10,7 @@
 /* body */
 body {
   background: #f2f2f2;
+  padding-top: 70px;/*navbarをfixedにしたのでその分あける*/
 }
 footer {
   margin-top: 40px;
