@@ -10,7 +10,8 @@
 /* body */
 body {
   background: #f2f2f2;
-  padding-top: 70px;/*navbarをfixedにしたのでその分あける*/
+  padding: 70px 0 0 0;/*navbarをfixedにしたのでその分あける*/
+  margin: 0;
 }
 footer {
   margin-top: 40px;
@@ -88,13 +89,15 @@ footer {
 
 .charge{
   background-color: white;
-  padding:15px;
+  padding:15px 20px 15px 20px;
 }
 
 .main_right{
   background-color: white;
   border-right:solid 4px #f2f2f2;
   word-wrap: break-word;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 h1{
@@ -217,12 +220,14 @@ h5{
 	margin-left: -11px;
 }
 
-.container_search{
-  width:100%;
-  padding-left: 0;
-  padding-right: 0;
-}
-
 .navbar-static-top{
   border-bottom: solid 1px #BDBDBD;
+}
+
+.container {
+  max-width: 100%;
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: auto;
+  margin-left: auto;
 }
