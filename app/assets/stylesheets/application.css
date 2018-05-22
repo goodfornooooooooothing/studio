@@ -89,15 +89,15 @@ footer {
 
 .charge{
   background-color: white;
-  padding:15px 20px 15px 20px;
+  padding:10px 15px 10px 15px;
 }
 
 .main_right{
   background-color: white;
   border-right:solid 4px #f2f2f2;
   word-wrap: break-word;
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right:15px;
+  padding-left:15px;
 }
 
 h1{
@@ -228,6 +228,14 @@ h5{
   max-width: 100%;
   padding-right: 0px;
   padding-left: 0px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container-show{
+  max-width: 100%;
+  padding-right: 20px;
+  padding-left: 20px;
   margin-right: auto;
   margin-left: auto;
 }
