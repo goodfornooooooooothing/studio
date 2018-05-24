@@ -27,11 +27,15 @@
             <% @studio_photo_urls.each_with_index do |studio_photo_url, i| %>
               <% if i == 0 %>
                 <div class="item active">
+                  <div class="image_trim">
                   <img src="/images/studios/<%= studio_photo_url %>" alt="">
+                  </div>
                 </div>
               <% else %>
                 <div class="item">
+                  <div class="image_trim">
                   <img src="/images/studios/<%= studio_photo_url %>" alt="">
+                  </div>
                 </div>
               <% end %>
             <% end %>

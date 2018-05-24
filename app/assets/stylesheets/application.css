@@ -239,3 +239,23 @@ h5{
   margin-right: auto;
   margin-left: auto;
 }
+
+.image_trim{
+  position: relative;
+  width: 100%;/*　トリミングしたい枠の幅（固定にしたい場合はサイズを入力）　*/
+  padding-top: 75%;/*　トリミングしたい枠の高さ（固定にしたい場合はサイズを入力）　*/
+  overflow: hidden;/*　画像が枠からはみ出た部分はトリミング（非表示）する　*/
+  margin: 0 auto;
+}
+.image_trim img{
+/* 画像を上下左右に中央配置する（絶対指定） */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  /* 画像の最大サイズは枠の1.5倍まで */
+  max-width: 150%;
+  max-height: 150%;
+}

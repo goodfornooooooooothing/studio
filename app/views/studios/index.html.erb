@@ -48,7 +48,7 @@
           </div>
           <div class="panel-body">
             <!--店舗情報ここから-->
-            <div class="image-view">
+            <div class="image-view image_trim">
             <% if studio.studio_photos.present? %>
               <img src="/images/studios/<%= studio.studio_photos.first.photo_url %>" alt="<%= studio.name %>" class="img-responsive">
             <% else %>
