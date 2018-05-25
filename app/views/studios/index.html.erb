@@ -1,99 +1,84 @@
-<div class="title_result YuGothic_b">
-  <% if @area.present? %>
-    <h4><%= @area.name %>の音楽スタジオ一覧(<%= @hit_count %>件)</h4>
-  <% else %>
-    <h4>都内の音楽スタジオ一覧</h4>
-  <% end %>
-</div>
-
+<body>
+<div class="contents">
 <div class="container">
 
-<!--並び替えボタン&ソート条件配置-->
-<table class="noborder_table">
-  <tr>
-    <td>
-      <div class="sort_studios dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          並び替える
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <li class="dropdown-header">平日料金で並び替え</li>
-          <li><%=link_to '安い順', studios_path(sort:"charge_weekday",sortby:"平日料金 安い順",area_id:@area_id)%></li>
-          <li><%=link_to '高い順', studios_path(sort:"charge_weekday desc",sortby:"平日料金 高い順",area_id:@area_id)%></li>
-        <li class="dropdown-header">休日料金で並び替え</li>
-          <li><%=link_to '安い順', studios_path(sort:"charge_holiday",sortby:"休日料金 安い順",area_id:@area_id)%></li>
-          <li><%=link_to '高い順', studios_path(sort:"charge_holiday desc",sortby:"休日料金 高い順",area_id:@area_id)%></li>
-        </ul>
-      </div>
-    </td>
-    <td>
-      <div class="sortby">
-        <%= @sortby %>
-      </div>
-    </td>
-  </tr>
-</table>
-
-
-
-
-<!-- スタジオ一覧表示 -->
-  <div class="row row-eq-height">
-    <% @studios.each do |studio| %>
-      <div class="col-xs-12 col-lg-3">
-        <div class="panel panel-default">
-          <div class="panel-heading YuGothic_b">
-            <%= link_to studio.name, studio_path(studio) %>
-          </div>
-          <div class="panel-body">
-            <!--店舗情報ここから-->
-            <div class="image-view image_trim">
-            <% if studio.studio_photos.present? %>
-              <img src="/images/studios/<%= studio.studio_photos.first.photo_url %>" alt="<%= studio.name %>" class="img-responsive">
-            <% else %>
-              <img src="/images/studios/noimage.png" alt="noimage" class="img-responsive">
-            <% end %>
-            </div>
-            
-            <div class="table-responsive">
-              <table class="table">
-                <tbody>
-                    <tr>
-                        <th>エリア</th>
-                        <td><%= @area.name %></td>
-                    </tr>
-                    <tr>
-                        <th>最寄駅</th>
-                        <td><%= studio.station %></td>
-                    </tr>
-                    <tr>
-                        <th>営業時間</th>
-                        <td><%= studio.business_hours %></td>
-                    </tr>
-                    <tr>
-                        <th>定休日</th>
-                        <td><%= studio.day_off %></td>
-                    </tr>
-                    <tr>
-                        <th>料金(平日)</th>
-                        <td><%= studio.charge_weekday %>円~</td>
-                    </tr>
-                    <tr>
-                        <th>料金(休日)</th>
-                        <td><%= studio.charge_holiday %>円~</td>
-                    </tr>
-                    <tr>
-                        <th>部屋数</th>
-                        <td><%= studio.room %></td>
-                    </tr>
-                </tbody>
-              </table>
-            </div>
-            <!--詳細情報ここまで-->
-          </div>
-        </div>
-      </div>
+  <p class="search_header text-center">
+    <% if @area.present? %>
+      <%= @area.name %>の音楽スタジオ一覧(<%= @hit_count %>件)
+    <% else %>
+      <h4>都内の音楽スタジオ一覧</h4>
     <% end %>
+  </p>
+  <div class="search-result well well-lg">
+    <div id="sort_box"><%= render 'layouts/sortbutton' %></div>
+    <div id="card_box">
+        <div class="row row-eq-height">
+
+          <% @studios.each do |studio| %>
+          <div class="col-xs-12 col-sm-4 col-lg-4">
+            <h2 class="card_header"><span><%=studio.name%></span></h2>
+            <div class="card-box">
+            <%= link_to studio_path(studio),:style=>"color:black; text-decoration:none;", class: "hoge" do %>
+              <div class="card-photo">
+                <div class="image_trim">
+                  <% if studio.studio_photos.present? %>
+                    <img src="/images/studios/<%= studio.studio_photos.first.photo_url %>" alt="<%= studio.name %>" class="img-responsive">
+                  <% else %>
+                    <img src="/images/studios/noimage.png" alt="noimage" class="img-responsive">
+                  <% end %>
+                </div>
+              </div>
+              <div class="card-studio">
+                
+                        <div class="table-responsive">
+                          <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>エリア</th>
+                                    <td><%= @area.name %></td>
+                                </tr>
+                                <tr>
+                                    <th>最寄駅</th>
+                                    <td><%= studio.station %></td>
+                                </tr>
+                                <tr>
+                                    <th>営業時間</th>
+                                    <td><%= studio.business_hours %></td>
+                                </tr>
+                                <tr>
+                                    <th>定休日</th>
+                                    <td><%= studio.day_off %></td>
+                                </tr>
+                                <tr>
+                                    <th>料金(平日)</th>
+                                    <td><%= studio.charge_weekday %>円~</td>
+                                </tr>
+                                <tr>
+                                    <th>料金(休日)</th>
+                                    <td><%= studio.charge_holiday %>円~</td>
+                                </tr>
+                                <tr>
+                                    <th>部屋数</th>
+                                    <td><%= studio.room %></td>
+                                </tr>
+                            </tbody>
+                          </table>
+                        </div>                
+                
+                
+                
+                
+              </div>
+            </div>
+            <%end%>
+          </div>
+          <%end%>
+
+        </div>
+    </div>
   </div>
+
+
 </div>
+</div>
+</body>

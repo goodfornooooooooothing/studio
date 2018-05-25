@@ -1,0 +1,29 @@
+<!--並び替えボタン&ソート条件配置-->
+<table class="noborder_table">
+  <tr>
+    <td>
+      <div class="sort_studios dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          並び替える
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li class="dropdown-header">平日料金で並び替え</li>
+          <li><%=link_to '安い順', studios_path(sort:"charge_weekday",sortby:"平日料金 安い順",area_id:@area_id)%></li>
+          <li><%=link_to '高い順', studios_path(sort:"charge_weekday desc",sortby:"平日料金 高い順",area_id:@area_id)%></li>
+        <li class="dropdown-header">休日料金で並び替え</li>
+          <li><%=link_to '安い順', studios_path(sort:"charge_holiday",sortby:"休日料金 安い順",area_id:@area_id)%></li>
+          <li><%=link_to '高い順', studios_path(sort:"charge_holiday desc",sortby:"休日料金 高い順",area_id:@area_id)%></li>
+        <li class="dropdown-header">部屋数で並び替え</li>
+          <li><%=link_to '少ない順', studios_path(sort:"room",sortby:"部屋数 少ない順",area_id:@area_id)%></li>
+          <li><%=link_to '多い順', studios_path(sort:"room desc",sortby:"部屋数 多い順",area_id:@area_id)%></li>
+        </ul>
+      </div>
+    </td>
+    <td>
+      <div class="sortby">
+        <%= @sortby %>
+      </div>
+    </td>
+  </tr>
+</table>

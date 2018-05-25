@@ -164,9 +164,6 @@ h6{
   border:none;
 }
 
-.title_result{
-  padding-bottom: 10px;
-}
 
 .sort_studios{
   padding-bottom: 10px;
@@ -183,13 +180,14 @@ h6{
 }
 
 .image_map{
+  padding-bottom: 20px;
 }
 
 .search{
-  background-color: white;
+  background-color: #faffff;
   border-radius: 0;
-  border-color: white;
-  padding: 50px 15px 50px 15px;
+  border-color: #faffff;
+  padding: 30px 15px 30px 15px;
 }
 
 .search_header {
@@ -318,4 +316,50 @@ ol.ol_custum li:after{
 
 .how_many_studios{
   font-size: 14px;
+}
+
+.search-result{
+  background-color: #faffff;
+  border-radius: 0;
+  border-color: #faffff;
+  padding: 30px 15px 30px 15px;
+}
+.card-box{
+  border: solid 1px #ededee;
+  background-color: white;
+  margin-bottom: 30px;
+  padding:0;
+}
+.card-photo{
+}
+.card-studio{
+}
+
+
+
+
+.card_header {
+	border-bottom: 3px solid #235180;
+	margin-bottom: 0;
+}
+.card_header span {
+	color: #ffffff;
+	font-size: 12px;
+	line-height: 20px;
+	position: relative;
+	background: #235180;
+	display: inline-block;
+	padding: 1px 5px 1px 5px;
+}
+.card_header span:after {
+	content: " ";
+	position: absolute;
+	top: 0;
+	left: 100%;
+	width: 0;
+	height: 0;
+	border-width: 0 10px 25px 0;
+	border-style: solid;
+	border-color: transparent;
+	border-bottom-color: #235180;
 }
