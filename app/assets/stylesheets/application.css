@@ -267,13 +267,13 @@ h6{
 }
 
 
-ol{
+ol.ol_custum{
   counter-reset:list;
   list-style-type:none;
   font: 14px/1.6 'arial narrow', sans-serif;
   padding: 0 1.5em 1.5em 1.5em;
 }
-ol li{
+ol.ol_custum li{
   position:relative;
   line-height: 30px;
   margin: 15px 0 10px 30px;
@@ -281,7 +281,7 @@ ol li{
   font-weight: bold;
   background: #fef6f3;
 }
-ol li:before{
+ol.ol_custum li:before{
   counter-increment: list;
   content: counter(list);
   position: absolute;
@@ -298,7 +298,7 @@ ol li:before{
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-ol li:after{
+ol.ol_custum li:after{
   content:"";
   display: block;
   position: absolute;
