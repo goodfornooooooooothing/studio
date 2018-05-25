@@ -123,6 +123,14 @@ h5{
   font-weight: bold;
   font-size: 18px;
 }
+h6{
+  color: #494949;/*文字色*/
+  background: transparent;/*背景透明に*/
+  font-weight: bold;
+  font-size: 18px;
+  padding-bottom: .5em;
+  border-bottom: 2px solid #F6A38B;
+}
 
 .studio_info{
   border-bottom: solid 1px #f2f2f2;
@@ -263,7 +271,7 @@ ol{
   counter-reset:list;
   list-style-type:none;
   font: 14px/1.6 'arial narrow', sans-serif;
-  padding: 1.5em;
+  padding: 0 1.5em 1.5em 1.5em;
 }
 ol li{
   position:relative;

@@ -6,10 +6,13 @@
   <p class="search_header text-center">エリアを指定してスタジオを探そう！</p>
   <div class="search well well-lg">
     <div class="row">
+      
       <div class="image_map text-center col-xs-12 col-sm-8 col-lg-7 col-lg-offset-1">
           <%= render 'layouts/imagemap' %>
       </div>
+      
       <div class="area_ranking col-xs-12 col-sm-4 col-lg-4">
+        <h6>スタジオが多いエリア</h6>
         <ol>
           <%count_ranking = 5%>
           <%i = 0%>
@@ -23,6 +26,7 @@
           <%end%>
         </ol>
       </div>
+      
     </div>
   </div>
 </div>
