@@ -1,25 +1,31 @@
-<% content_for :cover do %>
-  <div class="cover">
-    <div class="cover-inner">
-      <div class="cover-contents">
-        <p>個人練習に最適な音楽スタジオが見つかる！</p>
-        <p>的なサムシングを書く</p>
-      </div>
-    </div>
-  </div>
-<% end %>
-
 <body>
+<div class="contents">
+
 <div class="container">
 
-  <p class="search_header text-center">Step１ まずはエリアを指定しよう！</p>
+  <p class="search_header text-center">エリアを指定してスタジオを探そう！</p>
   <div class="search well well-lg">
     <div class="row">
-      <div class="image_map text-center col-xs-12 col-sm-8 col-sm-offset-2">
+      <div class="image_map text-center col-xs-12 col-sm-8 col-lg-7 col-lg-offset-1">
           <%= render 'layouts/imagemap' %>
+      </div>
+      <div class="area_ranking col-xs-12 col-sm-4 col-lg-4">
+        <ol>
+          <%count_ranking = 5%>
+          <%i = 0%>
+          <%for areas in Area.ranking_method do%>
+            <%if i<count_ranking then%>
+            <li>
+              <a href="studios?area_id=<%=Area.find_by(name: areas[0]).id%>"><h5><%=areas[0]%><span class="how_many_studios">【<%=areas[1]%>件】</span></h5></a>
+            </li>
+            <%end%>
+            <%i=i+1 %>
+          <%end%>
+        </ol>
       </div>
     </div>
   </div>
+</div>
 
 </div>
 </body>
